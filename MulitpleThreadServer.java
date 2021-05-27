@@ -24,8 +24,8 @@ public class MulitpleThreadServer extends Thread {
 			
 			ServerSocket serverSocket = new ServerSocket(52020) ;
  
-			System.out.println("¦øªA¾¹IP : " + serverSocket.getInetAddress() + 
-					" ¦øªA¾¹°ğ¸¹ : " + serverSocket.getLocalPort()) ;
+			System.out.println("ä¼ºæœå™¨ IP : " + serverSocket.getInetAddress() + 
+					" åŸ è™Ÿ : " + serverSocket.getLocalPort()) ;
 				
 			// * wait for connection and create handle thread
 			while(true){
