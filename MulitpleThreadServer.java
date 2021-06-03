@@ -1,4 +1,4 @@
-package network;
+package network.muilple_thread;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -20,12 +20,10 @@ public class MulitpleThreadServer extends Thread {
 	@Override
 	public void run() { 
 		
-		try {
-			
+		try {	
 			ServerSocket serverSocket = new ServerSocket(52020) ;
- 
-			System.out.println("伺服器 IP : " + serverSocket.getInetAddress() + 
-					" 埠號 : " + serverSocket.getLocalPort()) ;
+			System.out.println("Server IP : " + serverSocket.getInetAddress() + 
+					" Port : " + serverSocket.getLocalPort()) ;
 				
 			// * wait for connection and create handle thread
 			while(true){
@@ -36,14 +34,12 @@ public class MulitpleThreadServer extends Thread {
 				System.out.println("Connected client number : " + clientNO);
 				
 				// Client info
-				InetAddress inetAddress = socket.getInetAddress() ;
-				System.out.println(inetAddress.getHostAddress());
-//				System.out.println(inetAddress.getHostName());	
+				System.out.println("Server : 已經與 Client 連線: " 
+						+ socket.getRemoteSocketAddress());
 					
 				// process Client request
 				new Thread(new HandleClient(socket)).start() ;	
 			}
-				
 		} catch (IOException e) {
 				e.printStackTrace();
 			}
